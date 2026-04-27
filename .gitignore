@@ -1,0 +1,62 @@
+# IDE and System Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Java/Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+.classpath
+.project
+.settings/
+dependency-reduced-pom.xml
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+js/node_modules/
+js/client/node_modules/
+js/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+*.pkl
+*.h5
+*.joblib
+
+# Logs and Data
+*.log
+result_log.txt
+verification_results.txt
+datasets/
+ai model testing/
+images/temp/
+tools/
+bin/
+*.exe
+*.msi
+*.zip
+*.tar.gz
+
+# OS specific
+Desktop.ini
+$RECYCLE.BIN/
