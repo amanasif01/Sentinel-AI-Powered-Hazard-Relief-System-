@@ -1,262 +1,146 @@
-# Global Rainfall Data Fetcher
+# 🛡️ Sentinel: AI-Powered Hazard Relief System
 
-A Java application that fetches rainfall data for any location in the world using the NASA POWER API and OpenStreetMap geocoding. The application retrieves rainfall data for the past 7 days and provides detailed statistics.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2016.x-green)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 
-## Features
+**Sentinel** is a state-of-the-art, end-to-end disaster management and hazard relief platform. It leverages Artificial Intelligence, real-time meteorological data, and community-driven insights to predict, monitor, and mitigate the impact of natural disasters—with a primary focus on flood management and relief in regions like Pakistan.
 
-- **Any Location Worldwide**: Search for any city, town, or location using OpenStreetMap geocoding
-- **Smart Location Search**: Handles multiple search results and lets you choose the exact location
-- **NASA POWER API Integration**: Uses NASA's Prediction of Worldwide Energy Resources (POWER) API for accurate rainfall data
-- **Past 7 Days Data**: Automatically fetches rainfall data for the last 7 days
-- **Detailed Statistics**: Provides total rainfall, average daily rainfall, days with rain, and maximum daily rainfall
-- **User-Friendly Interface**: Interactive command-line interface with location search
+---
 
-## Prerequisites
+## 🚀 Key Features
 
-- Java 11 or higher (JDK recommended)
-- Maven 3.6 or higher (for dependency management)
-- Internet connection (for API calls)
+### 🧠 AI-Driven Flood Prediction
+*   **Predictive Analytics**: Utilizes a Random Forest ML model trained on historical rainfall and geographic data to forecast flood risks with high accuracy.
+*   **Historical Analysis**: Integrated Java-based engine that fetches and processes 30+ years of NASA POWER meteorological data.
 
-### Installing Maven (if not already installed)
+### 🌊 Real-Time Monitoring
+*   **Live Water Levels**: Real-time integration with **DAHITI** (Database for Hydrological Time Series) and **OpenMeteo** to monitor inland water bodies.
+*   **Dynamic Risk Assessment**: Continuously evaluates risk based on current rainfall, terrain elevation, and proximity to water bodies (via OpenStreetMap).
 
-**Windows:**
-1. Download Maven from: https://maven.apache.org/download.cgi
-2. Extract to a directory (e.g., `C:\Program Files\Apache\maven`)
-3. Add Maven bin directory to your PATH environment variable
-4. Verify installation: `mvn -version`
+### 🏥 Emergency Response & Relief
+*   **SOS Alert System**: Rapid emergency signal broadcasting with precise location tracking.
+*   **Resource Locator**: Intelligent search for nearby hospitals, emergency shelters, and relief centers.
+*   **Community Support**: A platform for users to share real-time updates, verify hazard locations, and coordinate volunteer efforts.
 
-**macOS/Linux:**
+### 🎒 Disaster Preparedness
+*   **Smart Survival Kits**: AI-generated recommendations for disaster kits tailored to the specific risk level of the user's location.
+*   **Interactive Maps**: High-fidelity Leaflet-based maps showing hazard zones and evacuation routes.
+
+---
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
+| :--- | :--- |
+| **Frontend** | React.js, Leaflet.js, CSS3 (Modern Glassmorphism) |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB (Atlas) |
+| **Data Engine** | Java 11, Maven (NASA POWER Integration) |
+| **AI/ML** | Python 3, Scikit-learn (Random Forest) |
+| **APIs** | NASA POWER, OpenWeather, OpenStreetMap (Nominatim), DAHITI |
+
+---
+
+## 📋 Prerequisites
+
+Ensure you have the following installed:
+*   **Java**: JDK 11 or higher
+*   **Node.js**: v16.x or higher
+*   **Python**: 3.8+ with `pip`
+*   **Maven**: 3.9.x
+*   **MongoDB**: An active Atlas cluster URI
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
 ```bash
-# Using Homebrew (macOS)
-brew install maven
-
-# Using apt (Ubuntu/Debian)
-sudo apt update
-sudo apt install maven
-
-# Using yum (CentOS/RHEL)
-sudo yum install maven
+git clone https://github.com/amanasif01/Sentinel-AI-Powered-Hazard-Relief-System-.git
+cd FYP2
 ```
 
-## Installation
+### 2. Backend & Frontend Setup
+```bash
+# Install Node.js dependencies
+cd js
+npm install
 
-1. **Clone or download the project**:
-   ```bash
-   git clone <repository-url>
-   cd pakistan-rainfall
-   ```
-
-2. **Build the project**:
-   ```bash
-   mvn clean compile
-   ```
-
-### Alternative: Compilation without Maven
-
-If you don't have Maven installed, you can compile manually:
-
-1. **Download required JAR files** to a `lib` directory:
-   - Apache HttpClient: https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-   - Jackson Databind: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-   - SLF4J Simple: https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-
-2. **Compile using javac**:
-   ```bash
-   # Windows
-   compile.bat
-   
-   # Linux/macOS
-   javac -d target/classes -cp "lib/*" src/main/java/com/nasa/power/*.java
-   ```
-
-3. **Run the application**:
-   ```bash
-   java -cp "target/classes;lib/*" com.nasa.power.PakistanRainfallApp
-   ```
-
-## Usage
-
-### Running the Application
-
-1. **Compile and run**:
-   ```bash
-   mvn clean compile exec:java -Dexec.mainClass="com.nasa.power.PakistanRainfallApp"
-   ```
-
-2. **Or build and run the JAR**:
-   ```bash
-   mvn clean package
-   java -jar target/pakistan-rainfall-1.0.0.jar
-   ```
-
-### Using the Application
-
-1. Enter any location name (city, town, or specific place)
-2. Examples:
-   - "Swat, Pakistan"
-   - "Murree, Pakistan"
-   - "New York, USA"
-   - "London, UK"
-   - "Tokyo, Japan"
-3. If multiple locations are found, select the exact one you want
-4. The application will fetch rainfall data for the past 7 days
-5. Results will show:
-   - Daily rainfall data with descriptions
-   - Summary statistics
-   - Total and average rainfall
-
-### Example Output
-
-```
-=== Global Rainfall Data Fetcher ===
-Using NASA POWER API + OpenStreetMap Geocoding
-
-You can search for any location in the world!
-Examples: Swat, Pakistan | Murree, Pakistan | New York, USA
-
-Enter location name: Swat, Pakistan
-
-Searching for location: Swat, Pakistan
-
-Found location: Swat, Khyber Pakhtunkhwa, Pakistan
-
-Fetching rainfall data for: Swat, Khyber Pakhtunkhwa, Pakistan
-Coordinates: 34.7500°N, 72.3500°E
-Data for the past 7 days:
-
-=== Rainfall Data for Swat, Khyber Pakhtunkhwa, Pakistan ===
-Location: 34.7500°N, 72.3500°E
-
-Date         Rainfall (mm)   Description
-==================================================
-2024-01-15   0.00           No rain
-2024-01-16   2.34           Light rain
-2024-01-17   0.00           No rain
-...
-
-=== Summary ===
-Total rainfall (7 days): 15.67 mm
-Average daily rainfall: 2.24 mm
-Days with rain: 3
-Maximum daily rainfall: 8.45 mm
+# Install Frontend dependencies
+cd client
+npm install
+cd ..
 ```
 
-## Location Search
-
-The application can search for any location worldwide using OpenStreetMap's comprehensive database. You can search for:
-
-- **Cities and Towns**: "Karachi, Pakistan", "New York, USA", "London, UK"
-- **Specific Areas**: "Swat Valley, Pakistan", "Central Park, New York"
-- **Landmarks**: "Eiffel Tower, Paris", "Mount Everest, Nepal"
-- **Coordinates**: The app will automatically find the nearest named location
-
-### Search Tips
-
-- Include country name for better accuracy: "Swat, Pakistan" instead of just "Swat"
-- Use specific area names: "Murree Hills, Pakistan"
-- For multiple results, the app will let you choose the exact location
-
-## API Information
-
-This application uses two APIs:
-
-### NASA POWER API
-- **Purpose**: Rainfall data retrieval
-- **Base URL**: https://power.larc.nasa.gov/api/
-- **Parameter**: PRECTOTCORR (Precipitation corrected)
-- **Data Source**: MERRA-2 reanalysis data
-- **Spatial Resolution**: 0.5° x 0.625° (approximately 50km)
-- **Temporal Resolution**: Daily
-
-### OpenStreetMap Nominatim API
-- **Purpose**: Location geocoding (converting place names to coordinates)
-- **Base URL**: https://nominatim.openstreetmap.org/
-- **Features**: Free, no API key required
-- **Coverage**: Worldwide location database
-- **Rate Limit**: 1 request per second (respected by the application)
-
-## Project Structure
-
-```
-src/main/java/com/nasa/power/
-├── PakistanRainfallApp.java    # Main application class
-├── NasaPowerApiClient.java     # NASA POWER API client
-├── GeocodingService.java       # OpenStreetMap geocoding service
-├── LocationResult.java         # Location search results
-├── RainfallData.java           # Rainfall data container
-└── DailyRainfall.java          # Daily rainfall record
+### 3. Java Engine Setup
+```bash
+# Return to root and compile Java components
+cd ..
+mvn clean compile
 ```
 
-## Dependencies
+### 4. Python Environment
+```bash
+# Install required ML libraries
+pip install scikit-learn pandas numpy joblib
+```
 
-- **Apache HttpClient**: For HTTP requests to NASA API
-- **Jackson**: For JSON parsing
-- **SLF4J**: For logging
-- **Java Time**: For date/time handling
+---
 
-## Error Handling
+## 🏃 Running the Application
 
-The application includes comprehensive error handling for:
-- Invalid city names
-- Network connectivity issues
-- API response errors
-- JSON parsing errors
+### Automated Run
+The project includes convenient batch scripts for Windows:
+*   **Complete Setup**: Run `COMPLETE_SETUP.bat` (Run as Administrator)
+*   **Start Application**: Run `run_application.bat`
 
-## Contributing
+### Manual Run
+1.  **Start the Backend**:
+    ```bash
+    cd js
+    node server.js
+    ```
+2.  **Start the React Client**:
+    ```bash
+    cd js/client
+    npm start
+    ```
+3.  **Run Flood Prediction Script** (Optional):
+    ```bash
+    python predict_flood.py
+    ```
 
-Feel free to contribute by:
-- Adding more cities
-- Improving error handling
-- Adding new features
-- Fixing bugs
+---
 
-## License
+## 📂 Project Structure
 
-This project is open source and available under the MIT License.
+```text
+FYP2/
+├── js/                    # Core Node.js Backend
+│   ├── client/            # React.js Frontend
+│   ├── src/               # Service Layer (Auth, Flood, Weather, etc.)
+│   └── server.js          # Express Entry Point
+├── src/main/java/         # Java Data Extraction Engine
+├── models/                # Trained AI/ML Models (.pkl)
+├── datasets/              # Training and Historical CSV Data
+├── images/                # UI Assets and Documentation Media
+├── pom.xml                # Maven Configuration
+└── README.md              # Project Documentation
+```
 
-## Disclaimer
+---
 
-This application uses NASA's POWER API for rainfall data. The accuracy and availability of data depend on NASA's services. The application is for educational and informational purposes only. 
+## 🛡️ License
+Distributed under the MIT License. See `LICENSE` for more information.
 
+---
 
+## 🤝 Acknowledgments
+*   NASA POWER API for providing critical meteorological data.
+*   The DAHITI database for hydrological monitoring.
+*   OpenStreetMap contributors for geographic data.
 
-Necessary Downloads:
-Location checking and power api:
-
-Java:
-Download Link: https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html
-Exact File: jdk-11.0.21_windows-x64_bin.exe
-Version: JDK 11.0.21
-Architecture: x64 (64-bit)
-
-
-Maven - Required Version
-Apache Maven 3.9.x
-Download Link: https://maven.apache.org/download.cgi
-Exact File: apache-maven-3.9.6-bin.zip
-Version: 3.9.6 (latest stable)
-Package: Binary zip archive
-
-
-
-
-
-
-
-api calls:
-openweather: next 7 days
-nasa: previous 7 days
-openstreet map: nearest waterbody
-
-
-
-server url
-mongodb+srv://amanasif01:icecream123@cluster0.9zkpi.mongodb.net/?retryWrites=true&w=majority
-&appName=Cluster0
-
-
-imp for community:: 
-npm install bcrypt multer
-
-
-
+---
+*Created with ❤️ by the Sentinel Team.*
