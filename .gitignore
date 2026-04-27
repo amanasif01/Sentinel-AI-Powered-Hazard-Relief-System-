@@ -1,0 +1,7 @@
+node_modules/
+tools/
+target/
+*.log
+verification_results.txt
+config.properties
+.env

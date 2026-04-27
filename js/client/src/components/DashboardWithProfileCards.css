@@ -1,0 +1,113 @@
+.dashboard-with-profile-cards {
+    padding: 2rem;
+    background: transparent;
+    min-height: 100vh;
+    color: white;
+}
+
+.dashboard-with-profile-cards h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.dashboard-with-profile-cards h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    border-radius: 2px;
+}
+
+.profile-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    justify-items: center;
+    padding: 0 1rem;
+}
+
+.profile-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 340px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.profile-card-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    filter: drop-shadow(0 12px 24px rgba(74, 158, 255, 0.3));
+}
+
+.profile-card-container:active {
+    transform: translateY(-4px) scale(1.01);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .profile-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 968px) {
+    .profile-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+
+    .profile-card-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-with-profile-cards {
+        padding: 1.5rem 1rem;
+    }
+
+    .dashboard-with-profile-cards h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .profile-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .profile-card-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-with-profile-cards h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .profile-cards-grid {
+        gap: 1.2rem;
+    }
+}

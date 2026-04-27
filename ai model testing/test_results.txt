@@ -1,0 +1,75 @@
+================================================================
+                   AI MODEL TESTING REPORT
+================================================================
+
+Model Path:   C:\Users\Aman\Desktop\FYP2\models\flood_rf_model.pkl
+Dataset Path: C:\Users\Aman\Desktop\FYP2\datasets\THESIS - GIS DATA - FLOOD SCENARIOS_UPDATED.csv
+Total Samples: 30420
+
+----------------------------------------------------------------
+OVERALL ACCURACY: 0.8766 (87.66%)
+----------------------------------------------------------------
+
+DETAILED METRICS (Precision, Recall, F1-Score):
+              precision    recall  f1-score   support
+
+        High     0.8355    0.9041    0.8684      9028
+         Low     0.7222    0.8244    0.7699      2494
+      Medium     0.9532    0.8613    0.9049     17010
+   Very High     0.7382    0.9706    0.8386      1836
+    Very Low     0.8000    0.3077    0.4444        52
+
+    accuracy                         0.8766     30420
+   macro avg     0.8098    0.7736    0.7652     30420
+weighted avg     0.8861    0.8766    0.8782     30420
+
+----------------------------------------------------------------
+CLASS-WISE ACCURACY & DETAILS
+----------------------------------------------------------------
+
+Class: High
+  Total Actual:    9028
+  Total Predicted: 9769
+  Correctly Pred:  8162
+  Accuracy (Recall): 0.9041 (90.41%)
+  F2 Score:        0.8895
+
+Class: Low
+  Total Actual:    2494
+  Total Predicted: 2847
+  Correctly Pred:  2056
+  Accuracy (Recall): 0.8244 (82.44%)
+  F2 Score:        0.8017
+
+Class: Medium
+  Total Actual:    17010
+  Total Predicted: 15370
+  Correctly Pred:  14650
+  Accuracy (Recall): 0.8613 (86.13%)
+  F2 Score:        0.8782
+
+Class: Very High
+  Total Actual:    1836
+  Total Predicted: 2414
+  Correctly Pred:  1782
+  Accuracy (Recall): 0.9706 (97.06%)
+  F2 Score:        0.9131
+
+Class: Very Low
+  Total Actual:    52
+  Total Predicted: 20
+  Correctly Pred:  16
+  Accuracy (Recall): 0.3077 (30.77%)
+  F2 Score:        0.3509
+
+----------------------------------------------------------------
+CONFUSION MATRIX
+----------------------------------------------------------------
+Rows = True Label, Columns = Predicted Label
+
+            High        Low         Medium      Very High   Very Low    
+High        8162        0           286         580         0           
+Low         0           2056        434         0           4           
+Medium      1553        755         14650       52          0           
+Very High   54          0           0           1782        0           
+Very Low    0           36          0           0           16          

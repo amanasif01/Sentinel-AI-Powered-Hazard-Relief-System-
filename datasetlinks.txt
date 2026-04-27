@@ -1,0 +1,9 @@
+For flood predictions:
+//humidity+rainfall+
+https://github.com/n-gauhar/Flood-prediction
+https://github.com/Lagare24/flood-prediction-project/blob/main/data/THESIS%20-%20GIS%20DATA%20-%20FLOOD%20SCENARIOS.csv
+(Rainfall Rate	Rate of rainfall	mm/hr	0-100
+Water level	Water level in the river	mm	0-5000
+elevation	Ground elevation at the point	m	0-1000
+Slope	Ground slope	degrees	0-90
+Distance from River	Distance from nearest river	m	0-5000)
